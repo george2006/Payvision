@@ -1,0 +1,17 @@
+First of all thank you for giving me this oportunity.
+I have been following you a lot of time.
+
+:)
+
+
+I'm not an expert on algorithms, its difficult me, but i always got it working.
+
+In the second exercise, i think that abstractions are discovered and not invented.
+Taking this into account I have tried to get a good balance between flexibility and 
+extensibility.
+
+If you dont like something on my design i will really appreciate that you give me some indications
+so i can improve my self
+
+Best Regards.
+Hope I see you soon!
