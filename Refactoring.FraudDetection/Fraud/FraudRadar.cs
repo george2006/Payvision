@@ -25,18 +25,15 @@ namespace Refactoring.FraudDetection.Fraud
             {
                 var currentOrder = orders[i];
                 int j = (i + 1);
-                bool isFraudulent = false;
-                while(j < orders.Count && isFraudulent == false)
+                while(j < orders.Count)
                 {
-                    // Please take a look at this method signature, you could add new rules.
-                    // I Will model this better in a future if its needed building a rule engine.
-                    // Using double disptach technique here to allow order changes its own state
-                    // if needed
+                    // if order is just marked as fraudulent, we dont compare it again
+                    if (orders[j].IsFraudulent)
+                        continue;
+
                     if (orders[j].CheckIsFraudulent(currentOrder, fraudRules))
                     {
                         fraudResults.Add(FraudResult.Fraudulent(orders[j].Id));
-                        // IMPORTANT: improve perfomance when its fraudulent we dont need to go to the end.
-                        isFraudulent = true;
                     }
                     j += 1;
                 }

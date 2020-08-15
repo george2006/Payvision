@@ -15,7 +15,8 @@ using Refactoring.FraudDetection.Domain.States;
 using Refactoring.FraudDetection.Fraud;
 using Refactoring.FraudDetection.Fraud.Infraestructure.OrderSource;
 using Refactoring.FraudDetection.Fraud.PredefinedFraudRules;
-using Refactoring.FraudDetection.Intraestructure.Repositories.States;
+using Refactoring.FraudDetection.Infraestructure.Repositories.States;
+using Refactoring.FraudDetection.Infraestructure.Factories.Orders;
 
 namespace Refactoring.FraudDetection.Tests
 {

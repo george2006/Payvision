@@ -1,34 +1,40 @@
 ﻿using Refactoring.FraudDetection.Domain.States;
+using Refactoring.FraudDetection.Infraestructure;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Refactoring.FraudDetection.Intraestructure.Repositories.States
+namespace Refactoring.FraudDetection.Infraestructure.Repositories.States
 {
-    public class MemoryStateRepository : IStateRepository
+    public sealed class MemoryStateRepository : IStateRepository
     {
-        private Dictionary<string, string> states = new Dictionary<string, string>()
+        private readonly Dictionary<string, State> states = new Dictionary<string, State>()
         {
-            {"il", "Illinois"},
-            {"cl", "Colorado"},
-            {"ny", "New York"}
+            {"il", new State("il", "Illinois")},
+            {"cl", new State("cl", "Colorado")},
+            {"ny", new State("ny", "New York")}
         };
-        public void AddState(string abbreviature, string name)
+
+        public void Add(State state)
         {
-            states[abbreviature.ToLower()] = name;
+            Requires.NotNull(state, nameof(state));
+
+            if (!states.ContainsKey(state.Abbreviature))
+            {
+                states.Add(state.Abbreviature, state);
+            }
+
+            states[state.Abbreviature] = state;
         }
 
-        public string StateNameByAbbreviature(string abbreviature)
+        State IStateRepository.StateByAbbreviature(string abbreviature)
         {
             string toLowerAbbreviature = abbreviature.ToLower();
-            if (states.ContainsKey(toLowerAbbreviature)) 
+            if (states.ContainsKey(toLowerAbbreviature))
             {
                 return states[toLowerAbbreviature];
             }
             return null;
-           
         }
-
-        
     }
 }

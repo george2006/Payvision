@@ -1,11 +1,12 @@
-﻿using Refactoring.FraudDetection.Domain.States;
+﻿using Refactoring.FraudDetection.Domain.Orders;
+using Refactoring.FraudDetection.Domain.States;
 using Refactoring.FraudDetection.Infraestructure;
 using System;
 using System.Collections.Generic;
 using System.Net.NetworkInformation;
 using System.Text;
 
-namespace Refactoring.FraudDetection.Domain.Orders
+namespace Refactoring.FraudDetection.Infraestructure.Factories.Orders
 {
     public class StringArrayOrderFactory : IOrderFactory 
     { 
@@ -48,10 +49,11 @@ namespace Refactoring.FraudDetection.Domain.Orders
             var creditCard = orderFields[OrderFieldsPosition.CreditCard];
 
             // We need to find state in a state repository by its abbreviature.
-            State state = new State(
-                stateRepository.StateNameByAbbreviature(orderFields[OrderFieldsPosition.State]));
+            Domain.States.State state = stateRepository
+                .StateByAbbreviature(orderFields[OrderFieldsPosition.State]);
 
-            Address address = new Address(street, city, state, zipCode);
+            Domain.Orders.State orderState = new Domain.Orders.State(state.Name);
+            Address address = new Address(street, city, orderState, zipCode);
             Email email = new Email(stringEmail);
             return new Order(orderId, dealId, email, creditCard, address);
         }
