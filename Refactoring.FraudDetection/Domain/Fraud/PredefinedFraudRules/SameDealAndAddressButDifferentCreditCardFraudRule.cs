@@ -4,14 +4,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Refactoring.FraudDetection.Fraud.PredefinedFraudRules
+namespace Refactoring.FraudDetection.Domain.Fraud.PredefinedFraudRules
 {
-    public class SameDealAndEmailButDifferentCreditCardFraudRule : IFraudRule
+    public class SameDealAndAddressButDifferentCreditCardFraudRule : IFraudRule
     {
         public bool IsFraudulent(Order thisOne, Order other)
         {
             if (thisOne.DealId == other.DealId &&
-                thisOne.Email == other.Email &&
+                thisOne.Address == other.Address &&
                 thisOne.CreditCard != other.CreditCard)
             {
                 return true;

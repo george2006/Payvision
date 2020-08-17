@@ -30,7 +30,7 @@ namespace Refactoring.FraudDetection.Infraestructure
             }
             catch (FormatException)
             {
-                throw new InvalidOperationException($"Email with value{email} is not valid");
+                throw new InvalidOperationException($"Email with value {email} is not valid");
             }
            
         }

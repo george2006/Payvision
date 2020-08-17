@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Refactoring.FraudDetection.Fraud
+namespace Refactoring.FraudDetection.Domain.Fraud
 {
     public class FraudRadar : IFraudRadar
     {

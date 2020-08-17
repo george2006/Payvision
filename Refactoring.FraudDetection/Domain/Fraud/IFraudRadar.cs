@@ -2,7 +2,7 @@
 using Refactoring.FraudDetection.Fraud;
 using System.Collections.Generic;
 
-namespace Refactoring.FraudDetection.Abstractions.Fraud
+namespace Refactoring.FraudDetection.Domain.Fraud
 {
     public interface IFraudRadar
     {

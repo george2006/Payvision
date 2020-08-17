@@ -14,9 +14,10 @@ using Refactoring.FraudDetection.Domain.Orders;
 using Refactoring.FraudDetection.Domain.States;
 using Refactoring.FraudDetection.Fraud;
 using Refactoring.FraudDetection.Fraud.Infraestructure.OrderSource;
-using Refactoring.FraudDetection.Fraud.PredefinedFraudRules;
 using Refactoring.FraudDetection.Infraestructure.Repositories.States;
 using Refactoring.FraudDetection.Infraestructure.Factories.Orders;
+using Refactoring.FraudDetection.Tests.Infraestructure.Repositories.FraudRule;
+using Refactoring.FraudDetection.Infraestructure.Repositories.FraudRule;
 
 namespace Refactoring.FraudDetection.Tests
 {
@@ -78,8 +79,7 @@ namespace Refactoring.FraudDetection.Tests
         }
         private static IEnumerable<IFraudRule> FraudRules() 
         {
-            yield return new SameDealAndEmailButDifferentCreditCardFraudRule();
-            yield return new SameDealAndAddressButDifferentCreditCardFraudRule();
+            return (new DefaultReflectionFraudRuleRepository()).Rules();
         }
 
       

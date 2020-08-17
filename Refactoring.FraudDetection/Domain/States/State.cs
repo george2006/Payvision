@@ -1,5 +1,4 @@
-﻿using Refactoring.FraudDetection.Fraud.PredefinedFraudRules;
-using Refactoring.FraudDetection.Infraestructure;
+﻿using Refactoring.FraudDetection.Infraestructure;
 using System;
 using System.Collections.Generic;
 using System.Text;

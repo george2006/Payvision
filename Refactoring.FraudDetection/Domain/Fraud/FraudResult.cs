@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Refactoring.FraudDetection.Abstractions.Fraud
+namespace Refactoring.FraudDetection.Domain.Fraud
 {
     public class FraudResult
     {
