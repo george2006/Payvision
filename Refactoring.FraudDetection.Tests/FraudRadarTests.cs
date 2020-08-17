@@ -18,6 +18,7 @@ using Refactoring.FraudDetection.Infraestructure.Repositories.States;
 using Refactoring.FraudDetection.Infraestructure.Factories.Orders;
 using Refactoring.FraudDetection.Tests.Infraestructure.Repositories.FraudRule;
 using Refactoring.FraudDetection.Infraestructure.Repositories.FraudRule;
+using Refactoring.FraudDetection.Domain.Fraud;
 
 namespace Refactoring.FraudDetection.Tests
 {
