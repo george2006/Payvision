@@ -27,9 +27,9 @@ namespace Refactoring.FraudDetection.Domain.Fraud
                 int j = (i + 1);
                 while(j < orders.Count)
                 {
-                    // if order is just marked as fraudulent, we dont compare it again
-                    if (orders[j].IsFraudulent)
-                        continue;
+                    // Againg modifiing the observable behaviour of the system
+                    // if (orders[j].IsFraudulent)
+                    //    continue;
 
                     if (orders[j].CheckIsFraudulent(currentOrder, fraudRules))
                     {
